@@ -36,7 +36,7 @@ function checkdependences() {
   echo -ne "git........"
   if ! hash git 2>/dev/null; then
     echo -e "\e[1;31mNot installed"$transparent""
-    exit=1
+    
   else
     echo -e "\e[1;32mOK!"$transparent""
   fi
@@ -62,6 +62,7 @@ echo
 echo -e " checking dependences"
 echo -e "----------------------"
 echo
+sleep 1
 checkdependences
 sleep 2
 clear
