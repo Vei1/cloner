@@ -23,7 +23,7 @@ function top() {
 
 }
 
-function  close {
+function  close() {
 	echo
 	echo -e "closing now"
 	sleep 1
@@ -31,6 +31,19 @@ function  close {
 	 exit
 
 }
+
+function checkdependences() {
+  echo -ne "git........"
+  if ! hash git 2>/dev/null; then
+    echo -e "\e[1;31mNot installed"$transparent""
+    exit=1
+  else
+    echo -e "\e[1;32mOK!"$transparent""
+  fi
+  
+}
+
+
 
    clear
 
@@ -44,8 +57,13 @@ sleep 0.1 && echo -e "     | |__| | | |_  | |____| | (_) | | | |  __/ |   "
 sleep 0.1 && echo -e "      \_____|_|\__|  \_____|_|\___/|_| |_|\___|_|   "
 sleep 0.1 && echo -e "           By veil  "
 
-sleep 3
-
+sleep 1 
+echo
+echo -e " checking dependences"
+echo -e "----------------------"
+echo
+checkdependences
+sleep 2
 clear
 
 top
