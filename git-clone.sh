@@ -6,6 +6,7 @@
    red="\033[1;31m"
    yellow="\033[1;33m"
    blue="\033[1;34m"
+   green="\033[1;32m"
    transparent="\e[0m"
 
 trap close SIGINT SIGHUP
@@ -25,10 +26,10 @@ function top() {
 
 function  close() {
 	echo
-	echo -e "closing now"
+	echo -e $green "closing now"
 	sleep 1
 	clear 
-	 exit
+	 exit 
 
 }
 
@@ -76,9 +77,9 @@ clear
 top
 
 echo
-echo         "---------------------------------------"
-echo -e $red "    What is the organization name?   |"
-echo         "---------------------------------------"
+echo -e $red "---------------------------------------"
+echo -e      "    What is the organization name?   |"
+echo -e      "---------------------------------------"
 echo
 echo
 echo
