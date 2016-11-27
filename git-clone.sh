@@ -33,6 +33,14 @@ function  close() {
 
 }
 
+function dependencestop() {
+  echo -e $red
+echo -e " checking dependences"
+echo -e "----------------------"
+echo 
+
+}
+
 function checkdependences() {
   echo -ne "git........"
   if ! hash git 2>/dev/null; then
@@ -44,7 +52,11 @@ function checkdependences() {
   fi
 
   if [ "$exit" = "1" ]; then
-  apt-get  install git
+  xterm -T "Installing git" -geometry 100x30 -e "sudo apt-get install git -y"
+  clear 
+  top
+  dependencestop
+  echo -e "git.......\e[1;32mOK!"$transparent""
   fi
   
 }
@@ -63,21 +75,18 @@ sleep 0.1 && echo -e "     | |__| | | |_  | |____| | (_) | | | |  __/ |   "
 sleep 0.1 && echo -e "      \_____|_|\__|  \_____|_|\___/|_| |_|\___|_|   "
 sleep 0.1 && echo -e "           By veil  "
 
-sleep 1 
+  sleep 1 
+  dependencestop
+  sleep 1
 echo
-echo -e " checking dependences"
-echo -e "----------------------"
-echo
-sleep 1
-echo
-checkdependences
-sleep 2
+    checkdependences
+  sleep 2
 clear
 
 top
 
 echo
-echo -e $red "---------------------------------------"
+echo -e $red"---------------------------------------"
 echo -e      "    What is the organization name?   |"
 echo -e      "---------------------------------------"
 echo
