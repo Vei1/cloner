@@ -1,7 +1,7 @@
 #! /bin/bash
 #veil
 
-#Colors
+#Colours
    
    red="\033[1;31m"
    yellow="\033[1;33m"
