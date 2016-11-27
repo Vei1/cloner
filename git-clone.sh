@@ -87,7 +87,7 @@ top
 
 echo
 echo -e $red"---------------------------------------"
-echo -e      "    What is the organization name?   |"
+echo -e      "|    What is the organization name?   |"
 echo -e      "---------------------------------------"
 echo
 echo
@@ -99,9 +99,9 @@ clear
 top 
 
 echo 
-echo -e $red"----------------------------------------"
-echo -e     "     What is the repository name?      |"
-echo -e     "----------------------------------------"
+echo -e $red"---------------------------------------"
+echo -e     "|     What is the repository name?    |"
+echo -e     "---------------------------------------"
 echo
 echo
 echo
@@ -119,7 +119,7 @@ git clone https://github.com/$org/$repo.git
 echo "----------------------------------------------"
 sleep 2.5 
 clear
-echo "All Done!" 
+echo -e $green "All Done!" 
 sleep 1
 clear
 exit
