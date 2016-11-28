@@ -61,6 +61,37 @@ function checkdependences() {
   
 }
 
+function directory() {
+  clear
+  top
+  echo
+  echo -e $red"-----------------------------------------------------------"
+  echo -e     "| "$transparent"  What is the directory location? "$red"(eg. /home/user/Code ) |"
+  echo -e     "-----------------------------------------------------------"
+  echo
+  echo
+  echo -n -e ""$red"["$blue"git"$yellow"@"$blue"cloner"$red"]-["$yellow"~"$red"]"$transparent""
+  read dir
+
+  clear
+  top
+  echo
+  echo
+  echo -e $green""
+        git clone https://github.com/$org/$repo.git $dir
+  
+  sleep 3
+  clear
+  exit 1
+
+
+
+
+
+
+}
+
+
 
 
    clear
@@ -87,8 +118,8 @@ top
 
 echo
 echo -e $red"---------------------------------------"
-echo -e      "|    What is the organization name?   |"
-echo -e      "---------------------------------------"
+echo -e      "| "$transparent"   What is the organization name?  "$red" |"
+echo -e  $red"---------------------------------------"
 echo
 echo
 echo
@@ -100,8 +131,8 @@ top
 
 echo 
 echo -e $red"---------------------------------------"
-echo -e     "|     What is the repository name?    |"
-echo -e     "---------------------------------------"
+echo -e     "| "$transparent"    What is the repository name?   "$red" |"
+echo -e $red"---------------------------------------"
 echo
 echo
 echo
@@ -109,11 +140,28 @@ echo -n -e ""$red"["$blue"git"$yellow"@"$blue"cloner"$red"]-["$yellow"~"$red"]"$
 read repo
 
 clear
-
-sleep 0.7
 top
-git clone https://github.com/$org/$repo.git
 
+
+echo
+echo -e $red"------------------------------------------------------"
+echo -e     "| "$transparent"    Would you like to donload to a specific dir    "$red"|" 
+echo -e $red"------------------------------------------------------"
+echo
+echo
+echo
+echo -e "      "$red"["$yellow"1"$red"]"$transparent" Yes         "
+echo -e "      "$red"["$yellow"2"$red"]"$transparent" No      "
+echo
+echo
+echo -n -e ""$red"["$blue"git"$yellow"@"$blue"cloner"$red"]-["$yellow"~"$red"]"$transparent""
+read yn
+
+case "$yn" in
+        1 ) directory ;;
+        2 ) git clone https://github.com/$org/$repo.git;;
+        * ) echo -e $red "INVALID ENTRY"
+      esac
 
 
 echo "----------------------------------------------"
